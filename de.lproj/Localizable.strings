@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  MyPendler
+
+  Created by Eleni Siakagianni on 6/30/13.
+  Copyright (c) 2013 10betterpages GmbH. All rights reserved.
+*/
+
+"EMAIL" = "Email";
+"PASSWORD" = "Password";
+"FIRST_NAME" = "First name";
+"LAST_NAME" = "Last name";
+"LOG_IN" = "Login";
+"SIGN_UP" = "Sign up";
+"NO_ACCOUNT" = "No account yet?Sign up here!";
+"CANCEL" = "Cancel";
+"EMAIL_PLH" = "you@company.com";
+"PASSWD_PLH" = "Minimum 6 characters";
+"FIRST_NAME_PLH" = "Minimum 2 characters";
+"LAST_NAME_PLH" = "Minimum 2 characters";

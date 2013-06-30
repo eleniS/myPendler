@@ -10,7 +10,14 @@
 
 @interface NSUserDefaults (AccessMethods)
 
+
++(BOOL) userLogggedIn;
 +(NSDictionary *) userData;
 +(NSString *) userEmail;
++(void) saveUserDataWithChanges:(NSDictionary *)changes;
+
++(NSString *) emailKey;
++(NSString *) firstNameKey;
++(NSString *) lastNameKey;
 
 @end

@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol SignUpCompletedDelegate ;
 
-@interface LoginVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface LoginVC : UIViewController<UITableViewDataSource, UITableViewDelegate, SignUpCompletedDelegate>
+
+@property (nonatomic,strong) UITableView *tableView;
+
+-(CGFloat) addImageAndReturnHeight;
+-(UITableView *)addTableViewWithTopPadding:(CGFloat) topPadding;
+
 
 @end

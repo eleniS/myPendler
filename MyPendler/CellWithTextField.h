@@ -13,5 +13,7 @@
 @property (nonatomic, strong) UITextField *textField;
 
 -(void) setPlaceholder:(NSString *) pl;
+-(void) setSecureTextEntry:(BOOL) isSecure;
+-(NSString *) cellValue;
 
 @end

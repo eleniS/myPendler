@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "NSUserDefaults+AccessMethods.h"
+#import "ProfileVC.h"
 
 #import "LoginVC.h"
 
@@ -17,10 +19,14 @@
 {
     [GMSServices provideAPIKey:@"AIzaSyBsxzR2ixI-qf2SE0SAfEMh6rA7YtiFXmw"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    LoginVC *loginVc = [[LoginVC alloc] init];
-    
-    self.window.rootViewController = loginVc;
+    if([NSUserDefaults userLogggedIn]){
+        ProfileVC *profileVC = [[ProfileVC alloc] init];
+        UINavigationController *navigationController = [[UINavigationController alloc]  initWithRootViewController:profileVC];
+        self.window.rootViewController = navigationController;
+    }else{
+        LoginVC *loginVc = [[LoginVC alloc] init];
+        self.window.rootViewController = loginVc;
+    }
     [self.window makeKeyAndVisible];
     return YES;
 }

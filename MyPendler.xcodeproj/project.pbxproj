@@ -11,11 +11,19 @@
 		5ABBE651177DE49B00B44074 /* NSUserDefaults+AccessMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE650177DE49B00B44074 /* NSUserDefaults+AccessMethods.m */; };
 		5ABBE655177DE67700B44074 /* CellWithTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE654177DE67700B44074 /* CellWithTextField.m */; };
 		5ABBE656177DE67700B44074 /* CellWithTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE654177DE67700B44074 /* CellWithTextField.m */; };
-		5ABBE65A177DE7EE00B44074 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE659177DE7EE00B44074 /* LoginVC.m */; };
-		5ABBE65B177DE7EE00B44074 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE659177DE7EE00B44074 /* LoginVC.m */; };
 		5ABBE660177DEF6700B44074 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABBE65F177DEF6700B44074 /* logo.png */; };
 		5ABBE662177DF09A00B44074 /* logo512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABBE661177DF09A00B44074 /* logo512x512.png */; };
 		5ABBE663177DF09A00B44074 /* logo512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABBE661177DF09A00B44074 /* logo512x512.png */; };
+		5ABBE6661780804900B44074 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE6651780804900B44074 /* SignUpVC.m */; };
+		5ABBE6671780804900B44074 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE6651780804900B44074 /* SignUpVC.m */; };
+		5ABBE66B1780880200B44074 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5ABBE66E1780880200B44074 /* Localizable.strings */; };
+		5ABBE66C1780880200B44074 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5ABBE66E1780880200B44074 /* Localizable.strings */; };
+		5ABBE67C17808C3E00B44074 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE67B17808C3E00B44074 /* LoginVC.m */; };
+		5ABBE67D17808C3E00B44074 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE67B17808C3E00B44074 /* LoginVC.m */; };
+		5ABBE6811780966300B44074 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE6801780966300B44074 /* User.m */; };
+		5ABBE6821780966300B44074 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE6801780966300B44074 /* User.m */; };
+		5ABBE6861780A26900B44074 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE6851780A26900B44074 /* ProfileVC.m */; };
+		5ABBE6871780A26900B44074 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE6851780A26900B44074 /* ProfileVC.m */; };
 		5AF7AF96177B3AC5007045B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7AF95177B3AC5007045B7 /* UIKit.framework */; };
 		5AF7AF98177B3AC5007045B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7AF97177B3AC5007045B7 /* Foundation.framework */; };
 		5AF7AF9A177B3AC5007045B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7AF99177B3AC5007045B7 /* CoreGraphics.framework */; };
@@ -69,9 +77,17 @@
 		5ABBE653177DE67700B44074 /* CellWithTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithTextField.h; sourceTree = "<group>"; };
 		5ABBE654177DE67700B44074 /* CellWithTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithTextField.m; sourceTree = "<group>"; };
 		5ABBE658177DE7EE00B44074 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
-		5ABBE659177DE7EE00B44074 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		5ABBE65F177DEF6700B44074 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		5ABBE661177DF09A00B44074 /* logo512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo512x512.png; path = ../../../Downloads/logo512x512.png; sourceTree = "<group>"; };
+		5ABBE6641780804900B44074 /* SignUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpVC.h; sourceTree = "<group>"; };
+		5ABBE6651780804900B44074 /* SignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpVC.m; sourceTree = "<group>"; };
+		5ABBE66D1780880200B44074 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5ABBE66F1780883900B44074 /* de */ = {isa = PBXFileReference; lastKnownFileType = file; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5ABBE67B17808C3E00B44074 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		5ABBE67F1780966300B44074 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		5ABBE6801780966300B44074 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5ABBE6841780A26900B44074 /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileVC.h; sourceTree = "<group>"; };
+		5ABBE6851780A26900B44074 /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileVC.m; sourceTree = "<group>"; };
 		5AF7AF92177B3AC5007045B7 /* MyPendler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPendler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF7AF95177B3AC5007045B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5AF7AF97177B3AC5007045B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,10 +186,30 @@
 		5ABBE657177DE7D500B44074 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				5ABBE67B17808C3E00B44074 /* LoginVC.m */,
 				5ABBE658177DE7EE00B44074 /* LoginVC.h */,
-				5ABBE659177DE7EE00B44074 /* LoginVC.m */,
+				5ABBE6641780804900B44074 /* SignUpVC.h */,
+				5ABBE6651780804900B44074 /* SignUpVC.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		5ABBE67E1780964600B44074 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5ABBE67F1780966300B44074 /* User.h */,
+				5ABBE6801780966300B44074 /* User.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5ABBE6831780A24800B44074 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5ABBE6841780A26900B44074 /* ProfileVC.h */,
+				5ABBE6851780A26900B44074 /* ProfileVC.m */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		5AF7AF89177B3AC5007045B7 = {
@@ -224,6 +260,8 @@
 		5AF7AF9B177B3AC5007045B7 /* MyPendler */ = {
 			isa = PBXGroup;
 			children = (
+				5ABBE6831780A24800B44074 /* Profile */,
+				5ABBE67E1780964600B44074 /* Model */,
 				5ABBE657177DE7D500B44074 /* Login */,
 				5ABBE652177DE65800B44074 /* CustomViews */,
 				5ABBE64E177DE47F00B44074 /* Categories */,
@@ -243,6 +281,7 @@
 		5AF7AF9C177B3AC5007045B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5ABBE66E1780880200B44074 /* Localizable.strings */,
 				5AF7AF9D177B3AC5007045B7 /* MyPendler-Info.plist */,
 				5AF7AF9E177B3AC5007045B7 /* InfoPlist.strings */,
 				5AF7AFA1177B3AC5007045B7 /* main.m */,
@@ -328,6 +367,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = 5AF7AF89177B3AC5007045B7;
 			productRefGroup = 5AF7AF93177B3AC5007045B7 /* Products */;
@@ -352,6 +392,7 @@
 				5AF7AFD7177B3B7E007045B7 /* GoogleMaps.bundle in Resources */,
 				5ABBE660177DEF6700B44074 /* logo.png in Resources */,
 				5ABBE662177DF09A00B44074 /* logo512x512.png in Resources */,
+				5ABBE66B1780880200B44074 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +403,7 @@
 				5AF7AFC4177B3AC5007045B7 /* InfoPlist.strings in Resources */,
 				5AF7AFD8177B3B7E007045B7 /* GoogleMaps.bundle in Resources */,
 				5ABBE663177DF09A00B44074 /* logo512x512.png in Resources */,
+				5ABBE66C1780880200B44074 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +437,10 @@
 				5A480D6B177BFE66007EE471 /* RouteSettingsVC.m in Sources */,
 				5ABBE651177DE49B00B44074 /* NSUserDefaults+AccessMethods.m in Sources */,
 				5ABBE655177DE67700B44074 /* CellWithTextField.m in Sources */,
-				5ABBE65A177DE7EE00B44074 /* LoginVC.m in Sources */,
+				5ABBE6661780804900B44074 /* SignUpVC.m in Sources */,
+				5ABBE67C17808C3E00B44074 /* LoginVC.m in Sources */,
+				5ABBE6811780966300B44074 /* User.m in Sources */,
+				5ABBE6861780A26900B44074 /* ProfileVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +451,10 @@
 				5AF7AFC7177B3AC5007045B7 /* MyPendlerTests.m in Sources */,
 				5AF7AFF4177B82C4007045B7 /* DirectionService.m in Sources */,
 				5ABBE656177DE67700B44074 /* CellWithTextField.m in Sources */,
-				5ABBE65B177DE7EE00B44074 /* LoginVC.m in Sources */,
+				5ABBE6671780804900B44074 /* SignUpVC.m in Sources */,
+				5ABBE67D17808C3E00B44074 /* LoginVC.m in Sources */,
+				5ABBE6821780966300B44074 /* User.m in Sources */,
+				5ABBE6871780A26900B44074 /* ProfileVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +469,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5ABBE66E1780880200B44074 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5ABBE66D1780880200B44074 /* en */,
+				5ABBE66F1780883900B44074 /* de */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		5AF7AF9E177B3AC5007045B7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

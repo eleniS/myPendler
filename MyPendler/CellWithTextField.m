@@ -46,6 +46,15 @@
     textField.placeholder = pl;
 }
 
+-(void) setSecureTextEntry:(BOOL) isSecure{
+    textField.secureTextEntry = isSecure;
+}
+
+-(NSString *) cellValue{
+    
+    return textField.text?textField.text:@"";
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

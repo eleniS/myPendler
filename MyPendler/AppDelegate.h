@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+#if DEBUG
+#define LFDebug(fmt, ...) \
+NSLog(@"%s\tLine:%d\t>>> " fmt,\
+__PRETTY_FUNCTION__,\
+__LINE__,\
+##__VA_ARGS__\
+)
+#else
+#define LFDebug(fmt, ...)
+#endif
+
 @class ViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

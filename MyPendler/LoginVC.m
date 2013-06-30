@@ -8,12 +8,16 @@
 
 #import "LoginVC.h"
 #import "CellWithTextField.h"
+#import "SignUpVC.h"
+#import "ProfileVC.h"
 
 @interface LoginVC ()
 
 @end
 
 @implementation LoginVC
+
+@synthesize tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,9 +32,9 @@
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] applicationFrame].size.width, [[UIScreen mainScreen] applicationFrame].size.height)];
     self.view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
     CGFloat height = [self addImageAndReturnHeight];
-    [self addTableViewWithTopPadding:height];
+    self.tableView = [self addTableViewWithTopPadding:height];
     [self addLoginBtn];
-    [self addSignUpBtn];
+    [self addNoAccountBtn];
 }
 
 -(CGFloat) addImageAndReturnHeight{
@@ -40,7 +44,7 @@
     return logoView.bounds.size.height;
 }
 
--(void) addTableViewWithTopPadding:(CGFloat) topPadding{
+-(UITableView *) addTableViewWithTopPadding:(CGFloat) topPadding{
     UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, topPadding , [self.view bounds].size.width, [self.view bounds].size.height * 0.4) style: UITableViewStyleGrouped];
     table.delegate = self;
     table.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -51,28 +55,30 @@
     
     [table setDataSource:self];
     [self.view addSubview:table];
+    return table;
 
 }
 
 -(void) addLoginBtn{
     UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     myButton.frame = CGRectMake([self.view bounds].size.width * 0.2, [self.view bounds].size.height * 0.55 , [self.view bounds].size.width * 0.6, 44);
-    [myButton setTitle:@"Log in" forState:UIControlStateNormal];
+    [myButton setTitle:NSLocalizedString(@"LOG_IN", nil) forState:UIControlStateNormal];
     myButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin| UIViewAutoresizingFlexibleTopMargin;
     [myButton addTarget:self action:@selector(loginBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
 
     [self.view addSubview:myButton];
 }
 
--(void) addSignUpBtn{
+-(void) addNoAccountBtn{
     UIView *bck = [[UIView alloc] initWithFrame:CGRectMake(0,[self.view bounds].size.height * 0.87 , [self.view bounds].size.width, [self.view bounds].size.height * 0.15) ];
     [self.view addSubview:bck];
     bck.backgroundColor = [UIColor whiteColor];
     UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    myButton.frame = CGRectMake([self.view bounds].size.width * 0.2, [self.view bounds].size.height * 0.9 , [self.view bounds].size.width * 0.6, 44);
-    [myButton setTitle:@"No account? Sign up" forState:UIControlStateNormal];
+    myButton.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    myButton.frame = CGRectMake([self.view bounds].size.width * 0.15, [self.view bounds].size.height * 0.9 , [self.view bounds].size.width * 0.7, 44);
+    [myButton setTitle:NSLocalizedString(@"NO_ACCOUNT", nil) forState:UIControlStateNormal];
     // add targets and actions
-    [myButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [myButton addTarget:self action:@selector(noAccountBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     // add to a view
     [self.view addSubview:myButton];
 }
@@ -89,6 +95,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void) noAccountBtnClicked:(id) button{
+    SignUpVC *signUp = [[SignUpVC alloc] initWithNibName:@"" bundle:nil];
+    signUp.delegate = self;
+    [self presentViewController:signUp animated:YES completion:nil];
+    
+}
 
 #pragma UITableView delegates
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -117,13 +130,14 @@
     
     {
         case 0:{
-            cell.textLabel.text = @"Email";
-            [cell setPlaceholder:@"you@example.com"];
+            cell.textLabel.text = NSLocalizedString(@"EMAIL", nil);
+            [cell setPlaceholder:NSLocalizedString(@"EMAIL_PLH", nil)];
             break;
         }
         case 1:{
-            cell.textLabel.text = @"Password";
-            [cell setPlaceholder:@"xxxxxxxxxx"];
+            cell.textLabel.text = NSLocalizedString(@"PASSWORD", nil);
+            [cell setPlaceholder:NSLocalizedString(@"PASSWD_PLH", nil)];
+            [cell setSecureTextEntry:YES];
             break;
         }
     }
@@ -139,6 +153,16 @@
 - (float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     return 20.0;
+}
+
+#pragma mark - SignUpCompletedDelegate
+- (void)showUserProfile:(User *)user{
+    NSLog(@"SHow user profile");
+    ProfileVC *profileVC = [[ProfileVC alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc]  initWithRootViewController:profileVC];
+    [self presentViewController:navigationController animated:YES completion:nil];
+    [self removeFromParentViewController];
+    
 }
 
 @end
