@@ -22,6 +22,8 @@
     if([NSUserDefaults userLogggedIn]){
         ProfileVC *profileVC = [[ProfileVC alloc] init];
         UINavigationController *navigationController = [[UINavigationController alloc]  initWithRootViewController:profileVC];
+        [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
+        [[UINavigationBar appearance]setShadowImage:[[UIImage alloc] init]];
         self.window.rootViewController = navigationController;
     }else{
         LoginVC *loginVc = [[LoginVC alloc] init];

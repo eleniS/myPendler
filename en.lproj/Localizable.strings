@@ -18,3 +18,6 @@
 "PASSWD_PLH" = "Minimum 6 characters";
 "FIRST_NAME_PLH" = "Minimum 2 characters";
 "LAST_NAME_PLH" = "Minimum 2 characters";
+"SEARCH_RIDE" = "Search ride";
+"OFFER_RIDE" = "Offer ride";
+"RIDE_DETAILS" = "Details";

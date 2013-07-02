@@ -36,9 +36,9 @@ static NSString *kMDDirectionsURL = @"http://maps.googleapis.com/maps/api/direct
             [url appendString:[waypoints objectAtIndex:i]];
         }
     }
-    url = [url
+    NSString *urlFinal = [url
            stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
-    _directionsURL = [NSURL URLWithString:url];
+    _directionsURL = [NSURL URLWithString:urlFinal];
     [self retrieveDirections:selector withDelegate:delegate];
 }
 - (void)retrieveDirections:(SEL)selector withDelegate:(id)delegate{
@@ -47,6 +47,31 @@ static NSString *kMDDirectionsURL = @"http://maps.googleapis.com/maps/api/direct
         [NSData dataWithContentsOfURL:_directionsURL];
         [self fetchedData:data withSelector:selector withDelegate:delegate];
     });
+}
+
+-(void) fetchDataFromUrl:(NSURL *)url withSelector:(SEL)selector andDelegate:(id)delegate{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSData* data =
+        [NSData dataWithContentsOfURL:[url copy]];
+        [self fetchedData:data withSelector:selector withDelegate:delegate];
+    });
+    
+}
+
+-(void) retrieveAddressFromLat:(NSString *)lat andLon:(NSString *)lon andSelector:(SEL)selector withDelegate:(id)delegate{
+
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=true",lat,lon ]];
+    NSLog(@"Reversr Geocoding %@", url);
+    [self fetchDataFromUrl:url withSelector:selector andDelegate:delegate];
+    
+}
+
+-(void) retrieveCoordinatesFromAddress:(NSString *)address andSelector:(SEL)selector withDelegate:(id)delegate{
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true",address ]];
+    NSLog(@"Reversr Geocoding %@", url);
+    [self fetchDataFromUrl:url withSelector:selector andDelegate:delegate];
+    
 }
 
 - (void)fetchedData:(NSData *)data

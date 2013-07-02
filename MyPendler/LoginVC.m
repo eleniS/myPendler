@@ -10,6 +10,7 @@
 #import "CellWithTextField.h"
 #import "SignUpVC.h"
 #import "ProfileVC.h"
+#import "UIButton+CustomStyle.h"
 
 @interface LoginVC ()
 
@@ -60,12 +61,13 @@
 }
 
 -(void) addLoginBtn{
-    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *myButton = [[UIButton alloc] init];
     myButton.frame = CGRectMake([self.view bounds].size.width * 0.2, [self.view bounds].size.height * 0.55 , [self.view bounds].size.width * 0.6, 44);
     [myButton setTitle:NSLocalizedString(@"LOG_IN", nil) forState:UIControlStateNormal];
     myButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin| UIViewAutoresizingFlexibleTopMargin;
     [myButton addTarget:self action:@selector(loginBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-
+    [myButton addOrangeFont];
+    [myButton makeGlossy];
     [self.view addSubview:myButton];
 }
 
@@ -73,13 +75,14 @@
     UIView *bck = [[UIView alloc] initWithFrame:CGRectMake(0,[self.view bounds].size.height * 0.87 , [self.view bounds].size.width, [self.view bounds].size.height * 0.15) ];
     [self.view addSubview:bck];
     bck.backgroundColor = [UIColor whiteColor];
-    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *myButton = [[UIButton alloc] init];
     myButton.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     myButton.frame = CGRectMake([self.view bounds].size.width * 0.15, [self.view bounds].size.height * 0.9 , [self.view bounds].size.width * 0.7, 44);
     [myButton setTitle:NSLocalizedString(@"NO_ACCOUNT", nil) forState:UIControlStateNormal];
     // add targets and actions
     [myButton addTarget:self action:@selector(noAccountBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    // add to a view
+    [myButton addOrangeFont];
+    [myButton makeGlossy];
     [self.view addSubview:myButton];
 }
 

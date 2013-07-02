@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "User.h"
 #import "ProfileVC.h"
+#import "UIButton+CustomStyle.h"
 
 @interface SignUpVC ()
 
@@ -49,6 +50,8 @@
     myButton.frame = CGRectMake(170, topPadding , 140, 44);
     [myButton setTitle:NSLocalizedString(@"SIGN_UP", nil) forState:UIControlStateNormal];
     [myButton addTarget:self action:@selector(signUpBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [myButton addOrangeFont];
+    [myButton makeGlossy];
     [self.view addSubview:myButton];
 }
 
@@ -58,6 +61,8 @@
     myButton.frame = CGRectMake(10, topPadding , 140, 44);
     [myButton setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
     [myButton addTarget:self action:@selector(cancelBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [myButton addOrangeFont];
+    [myButton makeGlossy];
     [self.view addSubview:myButton];
 }
 

@@ -15,5 +15,6 @@
 -(void) setPlaceholder:(NSString *) pl;
 -(void) setSecureTextEntry:(BOOL) isSecure;
 -(NSString *) cellValue;
+-(void) setCellValue:(NSString *)value;
 
 @end

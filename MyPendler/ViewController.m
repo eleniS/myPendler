@@ -85,11 +85,11 @@
     
 
     RouteSettingsVC *settingsvc = [[RouteSettingsVC alloc] initWithNibName:@"settingsroot" bundle:nil];
-    [settingsvc originalPointWithLocation:currentLocation];
+    
     UINavigationController *navCtl = [[UINavigationController alloc] initWithRootViewController:settingsvc];
     [navCtl setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     NSLog(@"showPickRoutePopUp");
-    [self.navigationController presentModalViewController:navCtl animated:YES];
+    [self.navigationController presentViewController:navCtl animated:YES completion:nil];
 
 }
 

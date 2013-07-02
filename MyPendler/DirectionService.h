@@ -15,5 +15,7 @@
 - (void)retrieveDirections:(SEL)sel withDelegate:(id)delegate;
 - (void)fetchedData:(NSData *)data withSelector:(SEL)selector
        withDelegate:(id)delegate;
+-(void) retrieveAddressFromLat:(NSString *)lat andLon:(NSString *)lon andSelector:(SEL)selector withDelegate:(id)delegate;
+-(void) retrieveCoordinatesFromAddress:(NSString *)address andSelector:(SEL)selector withDelegate:(id)delegate;
 
 @end

@@ -7,21 +7,23 @@
 //
 
 #import "RouteSettingsVC.h"
+#import "DirectionService.h"
+#import "CellWithTextField.h"
 
 
 @interface RouteSettingsVC ()
 
 @property (nonatomic, strong) UITableView *table;
+@property (nonatomic, strong) CLLocation *currentLocation;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
-@implementation RouteSettingsVC{
-    NSString *type ;
-    
-}
+@implementation RouteSettingsVC
 
 @synthesize table;
-@synthesize delegate;
+
+@synthesize requestType;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,18 +37,30 @@
 
 -(void) loadView{
     NSLog(@"LoadView");
+    self.locationManager = [[CLLocationManager alloc] init];// autorelease];
+    // This is the most important property to set for the manager. It ultimately determines how the manager will
+    // attempt to acquire location and thus, the amount of power that will be consumed.
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest ;
+    // Once configured, the location manager must be "started".
+    [self.locationManager startUpdatingLocation];
+    self.locationManager.delegate = self;
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] applicationFrame].size.width, [[UIScreen mainScreen] applicationFrame].size.height)];
     self.view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
-    self.title = type;
+    NSString  *btnTitle = @"";
+    if([self.requestType isEqualToString:@"offer"])
+        btnTitle = NSLocalizedString(@"OFFER_RIDE", nil);
+    else if([self.requestType isEqualToString:@"search"])
+       btnTitle = NSLocalizedString(@"SEARCH_RIDE", nil);
     
-    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(closeWithRoute)];
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:btnTitle style:  UIBarButtonItemStyleDone target:self action:@selector(closeWithRoute)];
+    
     self.navigationItem.rightBarButtonItem = done;
     UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
     self.navigationItem.leftBarButtonItem = cancel;
     
     self.table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [self.view bounds].size.width, [self.view bounds].size.height) style: UITableViewStyleGrouped];
     self.table.delegate = self;
-    self.table.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    //self.table.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     UIView *bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [self.view bounds].size.width, [[UIScreen mainScreen] applicationFrame].size.height)];
     bgview.opaque = YES;
     bgview.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
@@ -54,13 +68,17 @@
     
     [self.table setDataSource:self];
     [self.view addSubview:self.table];
-    
+
+    self.title = NSLocalizedString(@"RIDE_DETAILS", nil);
+        
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,19 +94,8 @@
     
 }
 
--(void) closeWithRoute{
-    
-}
 
-#pragma public methods
 
--(void) originalPointWithLocation:(CLLocation *)location{
-    
-}
-
--(void) requestType:(NSString *)requestType{
-    type = requestType;
-}
 
 #pragma UITableView delegates
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -106,11 +113,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	static NSString *theIdentifier = @"theIdentifier";
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:theIdentifier];
+	CellWithTextField *cell = [tableView dequeueReusableCellWithIdentifier:theIdentifier];
     
 	// If no cell is available, create a new one using the given identifier
 	if (cell == nil) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:theIdentifier];
+		cell = [[CellWithTextField alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:theIdentifier];
 	}
     
     switch (indexPath.row)
@@ -118,16 +125,7 @@
     {
         case 0:{
             cell.textLabel.text = @"From";
-            UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,10,200,25)];
-            myTextField.adjustsFontSizeToFitWidth = NO;
-            myTextField.backgroundColor = [UIColor clearColor];
-            myTextField.textColor = cell.detailTextLabel.textColor;
-            myTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-            myTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
-            myTextField.keyboardType = UIKeyboardTypeDefault;
-            myTextField.returnKeyType = UIReturnKeyDone;
-            myTextField.clearButtonMode = UITextFieldViewModeNever;
-            cell.accessoryView = myTextField;
+
             break;
         }
         case 1:{
@@ -149,4 +147,29 @@
     return 20.0;
 }
 
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"Location: %@ ", newLocation);
+    self.currentLocation = newLocation;
+    CellWithTextField *fromCell = (CellWithTextField *)[self.table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if([fromCell.cellValue isEqualToString:@""]){
+         CLLocationCoordinate2D coordinate = [self.currentLocation coordinate];
+        DirectionService *mds = [[DirectionService alloc] init];
+        SEL selector = @selector(setFromField:);
+        [mds retrieveAddressFromLat:[NSString stringWithFormat:@"%f", coordinate.latitude] andLon:[NSString stringWithFormat:@"%f", coordinate.longitude] andSelector:selector
+                   withDelegate:self];
+    }else{
+        [manager stopUpdatingLocation];
+    }
+    
+    
+}
+
+-(void) setFromField:(NSDictionary *) res{
+    CellWithTextField *fromCell = (CellWithTextField *)[self.table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    NSArray *results = [res objectForKey:@"results"];
+    if([results count] > 0)
+        [fromCell setCellValue:[((NSDictionary *)[results objectAtIndex:0]) objectForKey: @"formatted_address"] ];
+    
+}
 @end

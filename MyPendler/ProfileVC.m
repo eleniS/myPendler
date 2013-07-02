@@ -10,6 +10,8 @@
 #import "User.h"
 #import "NSUserDefaults+AccessMethods.h"
 #import "AppDelegate.h"
+#import "RouteSettingsVC.h"
+#import "UIButton+CustomStyle.h"
 
 @interface ProfileVC ()
 
@@ -33,6 +35,50 @@
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] applicationFrame].size.width, [[UIScreen mainScreen] applicationFrame].size.height)];
     self.view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
     self.title = [NSString stringWithFormat:@"%@ %@",self.user.firstName, self.user.lastName];
+    [self addSearchRideBtnAtHeight:40];
+    [self addOfferRideBtnAtHeight:40];
+}
+
+
+
+-(void) addSearchRideBtnAtHeight:(CGFloat ) topPadding{
+    
+    UIButton *myButton = [[UIButton alloc] init];
+    myButton.frame = CGRectMake(10, topPadding , 140, 44);
+    [myButton setTitle:NSLocalizedString(@"SEARCH_RIDE", nil) forState:UIControlStateNormal];
+    [myButton addTarget:self action:@selector(searchBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [myButton addOrangeFont];
+    [myButton makeGlossy];
+    [myButton addStrokeBorderWidth:0.4f];
+    [self.view addSubview:myButton];
+}
+
+-(void) addOfferRideBtnAtHeight:(CGFloat ) topPadding{
+    
+    UIButton *myButton = [[UIButton alloc] init];
+    myButton.frame = CGRectMake(170, topPadding , 140, 44);
+    [myButton setTitle:NSLocalizedString(@"OFFER_RIDE", nil) forState:UIControlStateNormal];
+    [myButton addTarget:self action:@selector(offerBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [myButton makeGlossy];
+    [myButton addOrangeFont];
+    [myButton addStrokeBorderWidth:0.4f];
+    [self.view addSubview:myButton];
+}
+
+-(void) searchBtnClicked: (id) btn{
+    RouteSettingsVC *routeSettings = [[RouteSettingsVC alloc] init];
+    [routeSettings setRequestType:@"search"];
+    UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:routeSettings];
+    [self presentViewController:controller animated:YES completion:nil];
+    
+}
+
+-(void) offerBtnClicked: (id) btn{
+    RouteSettingsVC *routeSettings = [[RouteSettingsVC alloc] init];
+    [routeSettings setRequestType:@"offer"];
+    UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:routeSettings];
+    [self presentViewController:controller animated:YES completion:nil];
+    
 }
 
 - (void)viewDidLoad

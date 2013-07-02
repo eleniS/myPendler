@@ -24,6 +24,8 @@
 		5ABBE6821780966300B44074 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE6801780966300B44074 /* User.m */; };
 		5ABBE6861780A26900B44074 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE6851780A26900B44074 /* ProfileVC.m */; };
 		5ABBE6871780A26900B44074 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBE6851780A26900B44074 /* ProfileVC.m */; };
+		5AC35795178322E700AD654E /* UIButton+CustomStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC35794178322E700AD654E /* UIButton+CustomStyle.m */; };
+		5AC35796178322E700AD654E /* UIButton+CustomStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC35794178322E700AD654E /* UIButton+CustomStyle.m */; };
 		5AF7AF96177B3AC5007045B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7AF95177B3AC5007045B7 /* UIKit.framework */; };
 		5AF7AF98177B3AC5007045B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7AF97177B3AC5007045B7 /* Foundation.framework */; };
 		5AF7AF9A177B3AC5007045B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF7AF99177B3AC5007045B7 /* CoreGraphics.framework */; };
@@ -81,13 +83,15 @@
 		5ABBE661177DF09A00B44074 /* logo512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo512x512.png; path = ../../../Downloads/logo512x512.png; sourceTree = "<group>"; };
 		5ABBE6641780804900B44074 /* SignUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpVC.h; sourceTree = "<group>"; };
 		5ABBE6651780804900B44074 /* SignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpVC.m; sourceTree = "<group>"; };
-		5ABBE66D1780880200B44074 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5ABBE66F1780883900B44074 /* de */ = {isa = PBXFileReference; lastKnownFileType = file; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5ABBE66D1780880200B44074 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5ABBE66F1780883900B44074 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5ABBE67B17808C3E00B44074 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		5ABBE67F1780966300B44074 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		5ABBE6801780966300B44074 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		5ABBE6841780A26900B44074 /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileVC.h; sourceTree = "<group>"; };
 		5ABBE6851780A26900B44074 /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileVC.m; sourceTree = "<group>"; };
+		5AC35793178322E700AD654E /* UIButton+CustomStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CustomStyle.h"; sourceTree = "<group>"; };
+		5AC35794178322E700AD654E /* UIButton+CustomStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CustomStyle.m"; sourceTree = "<group>"; };
 		5AF7AF92177B3AC5007045B7 /* MyPendler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPendler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF7AF95177B3AC5007045B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5AF7AF97177B3AC5007045B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -179,6 +183,8 @@
 			children = (
 				5ABBE653177DE67700B44074 /* CellWithTextField.h */,
 				5ABBE654177DE67700B44074 /* CellWithTextField.m */,
+				5AC35793178322E700AD654E /* UIButton+CustomStyle.h */,
+				5AC35794178322E700AD654E /* UIButton+CustomStyle.m */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -441,6 +447,7 @@
 				5ABBE67C17808C3E00B44074 /* LoginVC.m in Sources */,
 				5ABBE6811780966300B44074 /* User.m in Sources */,
 				5ABBE6861780A26900B44074 /* ProfileVC.m in Sources */,
+				5AC35795178322E700AD654E /* UIButton+CustomStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +462,7 @@
 				5ABBE67D17808C3E00B44074 /* LoginVC.m in Sources */,
 				5ABBE6821780966300B44074 /* User.m in Sources */,
 				5ABBE6871780A26900B44074 /* ProfileVC.m in Sources */,
+				5AC35796178322E700AD654E /* UIButton+CustomStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

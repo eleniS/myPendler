@@ -9,22 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@protocol RouteSearchDelegate;
+
+@interface RouteSettingsVC : UIViewController<UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
 
+@property (nonatomic,strong) NSString* requestType;
 
-@interface RouteSettingsVC : UIViewController<UITableViewDelegate, UITableViewDataSource,  UITextFieldDelegate>
 
-@property (nonatomic, weak) id<RouteSearchDelegate> delegate;
-
--(void) originalPointWithLocation:(CLLocation *)location;
 
 @end
 
 
-@protocol RouteSearchDelegate<NSObject>
-
-
-- (void)routeSettingsVC:(RouteSettingsVC*)viewController;
-
-@end
