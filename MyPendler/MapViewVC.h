@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "Route.h"
 
-@interface ViewController : UIViewController<GMSMapViewDelegate, CLLocationManagerDelegate>
+@interface MapViewVC : UIViewController<GMSMapViewDelegate, CLLocationManagerDelegate>
+
+-(id) initWithRoute:(Route *) route;
 
 @end

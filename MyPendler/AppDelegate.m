@@ -19,11 +19,12 @@
 {
     [GMSServices provideAPIKey:@"AIzaSyBsxzR2ixI-qf2SE0SAfEMh6rA7YtiFXmw"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
+    [[UINavigationBar appearance]setShadowImage:[[UIImage alloc] init]];
     if([NSUserDefaults userLogggedIn]){
         ProfileVC *profileVC = [[ProfileVC alloc] init];
         UINavigationController *navigationController = [[UINavigationController alloc]  initWithRootViewController:profileVC];
-        [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
-        [[UINavigationBar appearance]setShadowImage:[[UIImage alloc] init]];
+        
         self.window.rootViewController = navigationController;
     }else{
         LoginVC *loginVc = [[LoginVC alloc] init];

@@ -31,7 +31,7 @@
 
 -(void) loadView{
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] applicationFrame].size.width, [[UIScreen mainScreen] applicationFrame].size.height)];
-    self.view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
+    self.view.backgroundColor = [UIColor whiteColor];
     CGFloat height = [self addImageAndReturnHeight];
     self.tableView = [self addTableViewWithTopPadding:height];
     [self addLoginBtn];
@@ -39,8 +39,8 @@
 }
 
 -(CGFloat) addImageAndReturnHeight{
-    UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo512x512.png"]];
-    logoView.frame = CGRectMake(90, 0, [self.view bounds].size.height * 0.3, [self.view bounds].size.height * 0.3);
+    UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"comotio-logo"]];
+    logoView.frame = CGRectMake(15, 0, [self.view bounds].size.height * 0.6, [self.view bounds].size.height * 0.2);
     [self.view addSubview:logoView];
     return logoView.bounds.size.height;
 }
@@ -51,7 +51,7 @@
     table.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     UIView *bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [self.view bounds].size.width, [[UIScreen mainScreen] applicationFrame].size.height)];
     bgview.opaque = YES;
-    bgview.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
+
     table.backgroundView = bgview;
     
     [table setDataSource:self];
@@ -68,21 +68,22 @@
     [myButton addTarget:self action:@selector(loginBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [myButton addOrangeFont];
     [myButton makeGlossy];
+    [myButton addStrokeBorderWidth:0.4f];
     [self.view addSubview:myButton];
 }
 
 -(void) addNoAccountBtn{
-    UIView *bck = [[UIView alloc] initWithFrame:CGRectMake(0,[self.view bounds].size.height * 0.87 , [self.view bounds].size.width, [self.view bounds].size.height * 0.15) ];
+    UIView *bck = [[UIView alloc] initWithFrame:CGRectMake(0,[self.view bounds].size.height * 0.90 , [self.view bounds].size.width, [self.view bounds].size.height * 0.10) ];
     [self.view addSubview:bck];
-    bck.backgroundColor = [UIColor whiteColor];
+    bck.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
     UIButton *myButton = [[UIButton alloc] init];
     myButton.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     myButton.frame = CGRectMake([self.view bounds].size.width * 0.15, [self.view bounds].size.height * 0.9 , [self.view bounds].size.width * 0.7, 44);
     [myButton setTitle:NSLocalizedString(@"NO_ACCOUNT", nil) forState:UIControlStateNormal];
     // add targets and actions
     [myButton addTarget:self action:@selector(noAccountBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    myButton.titleLabel.font = [UIFont systemFontOfSize:16];
     [myButton addOrangeFont];
-    [myButton makeGlossy];
     [self.view addSubview:myButton];
 }
 

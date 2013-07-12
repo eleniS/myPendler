@@ -47,5 +47,21 @@
     return @"last_name";
 }
 
++(NSString *) ridesSharedKey{
+    return @"rides_shared";
+}
+
++(NSString *) kmSharedKey{
+    return @"km_shared";
+}
+
++(NSString *) co2SharedKey{
+    return @"co2_shared";
+}
+
++(NSString *) imgFilePath{
+    return @"img_file_path";
+}
+
 
 @end

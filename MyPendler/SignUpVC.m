@@ -34,8 +34,8 @@
 
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] applicationFrame].size.width, [[UIScreen mainScreen] applicationFrame].size.height)];
     self.view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
-    CGFloat height = [self addImageAndReturnHeight];
-    self.tableView = [self addTableViewWithTopPadding:height];
+
+    self.tableView = [self addTableViewWithTopPadding:10];
 
     self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, 200);
     [self addSignUpBtnAtHeight:self.tableView.frame.origin.y + self.tableView.frame.size.height + 10];
@@ -46,23 +46,25 @@
 
 -(void) addSignUpBtnAtHeight:(CGFloat ) topPadding{
 
-    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *myButton = [[UIButton alloc] init];
     myButton.frame = CGRectMake(170, topPadding , 140, 44);
     [myButton setTitle:NSLocalizedString(@"SIGN_UP", nil) forState:UIControlStateNormal];
     [myButton addTarget:self action:@selector(signUpBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [myButton addOrangeFont];
     [myButton makeGlossy];
+    [myButton addStrokeBorderWidth:0.4f];
     [self.view addSubview:myButton];
 }
 
 -(void) addCancelBtnAtHeight:(CGFloat ) topPadding{
 
-    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *myButton = [[UIButton alloc] init];
     myButton.frame = CGRectMake(10, topPadding , 140, 44);
     [myButton setTitle:NSLocalizedString(@"CANCEL", nil) forState:UIControlStateNormal];
     [myButton addTarget:self action:@selector(cancelBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [myButton addOrangeFont];
     [myButton makeGlossy];
+    [myButton addStrokeBorderWidth:0.4f];
     [self.view addSubview:myButton];
 }
 

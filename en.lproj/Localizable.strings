@@ -21,3 +21,9 @@
 "SEARCH_RIDE" = "Search ride";
 "OFFER_RIDE" = "Offer ride";
 "RIDE_DETAILS" = "Details";
+"RIDES_SHARED" = "shared rides";
+"KM_SHARED" = "km shared";
+"CO2_SAVED" = "co2 saved";
+"MY_PROFILE" = "My Profilfe";
+"FROM" = "From";
+"TO" = "To";

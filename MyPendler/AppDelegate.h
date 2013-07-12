@@ -19,12 +19,12 @@ __LINE__,\
 #define LFDebug(fmt, ...)
 #endif
 
-@class ViewController;
+@class MapViewVC;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) ViewController *viewController;
+@property (strong, nonatomic) MapViewVC *viewController;
 
 @end

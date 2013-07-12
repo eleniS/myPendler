@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RouteSettingsVC.h"
 
-@interface ProfileVC : UIViewController
+@interface ProfileVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, RouteDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
 @end

@@ -19,5 +19,9 @@
 +(NSString *) emailKey;
 +(NSString *) firstNameKey;
 +(NSString *) lastNameKey;
++(NSString *) ridesSharedKey;
++(NSString *) kmSharedKey;
++(NSString *) co2SharedKey;
++(NSString *) imgFilePath;
 
 @end
